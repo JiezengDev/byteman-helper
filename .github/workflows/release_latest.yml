@@ -56,5 +56,5 @@ jobs:
       
       - uses: ncipollo/release-action@v1    
         with:
-          artifacts: "byteman-chaos-mesh-download-${GIT_TAG}.tar.gz"
+          artifacts: "byteman-chaos-mesh-download-latest.tar.gz"
 
