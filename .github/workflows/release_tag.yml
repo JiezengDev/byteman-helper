@@ -20,11 +20,6 @@ jobs:
         with:
           python-version: '3.7'
 
-      - name: Configure awscli
-        run: |
-          pip3 install awscli
-          printf "%s\n" ${{ secrets.AWS_ACCESS_KEY }} ${{ secrets.AWS_SECRET_KEY }} ${{ secrets.AWS_REGION }} "json" | aws configure
-      
       - name: Build with Maven
         run: |
           cd BytemanHelper
@@ -54,4 +49,6 @@ jobs:
           mv ./byteman-download-${BYTEMAN_VERSION} ./byteman-chaos-mesh-download-${GIT_TAG}
           tar czvf ./byteman-chaos-mesh-download-${GIT_TAG}.tar.gz ./byteman-chaos-mesh-download-${GIT_TAG}
           
-          aws s3 cp ./byteman-chaos-mesh-download-${GIT_TAG}.tar.gz ${{ secrets.AWS_BUCKET_NAME }}/byteman-chaos-mesh-download-${GIT_TAG}.tar.gz
+      - uses: ncipollo/release-action@v1
+        with:
+          artifacts: "byteman-chaos-mesh-download-${tag}.tar.gz"

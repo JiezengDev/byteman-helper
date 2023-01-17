@@ -54,7 +54,7 @@ jobs:
           mv ./byteman-download-${BYTEMAN_VERSION} ./byteman-chaos-mesh-download-${GIT_TAG}
           tar czvf ./byteman-chaos-mesh-download-${GIT_TAG}.tar.gz ./byteman-chaos-mesh-download-${GIT_TAG}                
       
-      - uses: ncipollo/release-action@v1    
-        with:
-          artifacts: "byteman-chaos-mesh-download-latest.tar.gz"
+#      - uses: ncipollo/release-action@v1
+#        with:
+#          artifacts: "byteman-chaos-mesh-download-latest.tar.gz"
 
