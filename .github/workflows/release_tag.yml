@@ -51,5 +51,7 @@ jobs:
           tar czvf ./byteman-chaos-mesh-download-${GIT_TAG}.tar.gz ./byteman-chaos-mesh-download-${GIT_TAG}
           
       - uses: ncipollo/release-action@v1
+        run: |
+          GIT_TAG=${GITHUB_REF##*/}
         with:
-          artifacts: "./byteman-chaos-mesh-download-${GITHUB_REF##*/}.tar.gz"
+          artifacts: "*.tar.gz"
